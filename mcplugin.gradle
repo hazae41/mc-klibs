@@ -12,8 +12,8 @@ processResources.with copySpec {
 tasks.shadowJar {
     dependsOn 'clean'
     mustRunAfter 'clean'
-    archiveClassifier.set('bundle')
-    destinationDirectory = file("$rootDir/jar")
+    classifier = 'bundle'
+    destinationDir = file("$rootDir/jar")
 }
 
 artifacts {
