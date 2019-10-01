@@ -1,0 +1,4 @@
+name: KLibs
+version: @version@
+main: hazae41.minecraft.kotlin.libs.Bungee
+author: hazae41

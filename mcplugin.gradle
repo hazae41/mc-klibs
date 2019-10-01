@@ -1,0 +1,21 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+processResources.with copySpec {
+    from 'src/main/resources'
+    filter(ReplaceTokens, tokens: ['version':version])
+}
+
+tasks.shadowJar {
+    dependsOn 'clean'
+    mustRunAfter 'clean'
+    archiveClassifier.set('bundle')
+    destinationDirectory = file("$rootDir/jar")
+}
+
+artifacts {
+    archives shadowJar
+}
